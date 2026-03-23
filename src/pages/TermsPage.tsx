@@ -10,11 +10,11 @@ export default function TermsPage() {
         <div className="container-site py-16 relative z-10 text-center">
           <FadeIn>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Terms of Service</h1>
-            <p className="text-white/60 text-sm">Last updated: January 1, 2026</p>
+            <p className="text-white/60 text-sm">Last updated: March 2026</p>
           </FadeIn>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 60" fill="none">
+        <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
+          <svg viewBox="0 0 1440 60" fill="none" preserveAspectRatio="none" className="w-full">
             <path d="M0 60H1440V20C1200 50 720 0 0 40V60Z" fill="white" />
           </svg>
         </div>
