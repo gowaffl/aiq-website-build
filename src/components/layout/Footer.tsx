@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Col 1: Brand */}
           <div className="lg:col-span-1">
-            <img src={logoDark} alt="authorizationIQ" className="h-8 w-auto mb-4" />
+            <img src={logoWhite} alt="authorizationIQ" className="h-8 w-auto mb-4" />
             <p className="text-sm text-white/65 leading-relaxed mb-6">
               Empowering OPOs with predictive analytics and AI-powered tools to improve authorization rates and save more lives.
             </p>
