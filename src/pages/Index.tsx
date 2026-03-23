@@ -11,6 +11,7 @@ import {
   MessageCircle,
   BarChart3,
   Calendar,
+  Play,
 } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import SectionTag from "@/components/SectionTag";
