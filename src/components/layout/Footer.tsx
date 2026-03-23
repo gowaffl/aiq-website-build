@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone } from "lucide-react";
-import logoDark from "@/assets/logo-dark.png";
+import logoWhite from "@/assets/logo-white.png";
 
 export default function Footer() {
   return (
