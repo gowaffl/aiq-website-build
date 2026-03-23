@@ -1,85 +1,90 @@
 import { motion } from "framer-motion";
-import { Lock, Shield, UserCheck } from "lucide-react";
+import { Lock, Shield, UserCheck, Globe, Brain, MessageCircle, BarChart3, Zap } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import SectionTag from "@/components/SectionTag";
 import CTABanner from "@/components/CTABanner";
 
 const steps = [
   {
-    num: "01",
+    step: 1,
     title: "Data Integration",
-    desc: "authorizationIQ™ securely connects with your existing OPO systems and data infrastructure through HIPAA-compliant APIs. No rip-and-replace — we work with what you have.",
+    icon: <Globe size={22} />,
+    desc: "authorizationIQ™ securely connects with your existing OPO systems to analyze historical authorization data, case outcomes, and demographic patterns. No disruption to current workflows — we work with what you already have.",
   },
   {
-    num: "02",
+    step: 2,
     title: "Predictive Analysis",
-    desc: "aIQ Predict processes 50+ case variables — demographic, clinical, historical, and contextual — to generate a real-time authorization likelihood score and approach strategy.",
+    icon: <Brain size={22} />,
+    desc: "aIQ Predict processes 50+ variables per referral case — including demographics, timing, hospital context, and historical patterns — to generate an authorization likelihood score and recommended approach strategy.",
   },
   {
-    num: "03",
+    step: 3,
     title: "Coordinator Support",
-    desc: "aIQ Navigator provides live guidance during family conversations. As the coordinator engages the family, the AI surfaces evidence-based prompts, cultural insights, and talking points.",
+    icon: <MessageCircle size={22} />,
+    desc: "When a coordinator engages with a family, aIQ Navigator provides real-time guidance: culturally sensitive talking points, emotional cues, de-escalation strategies, and evidence-based approach recommendations tailored to that family.",
   },
   {
-    num: "04",
+    step: 4,
     title: "Performance Insights",
-    desc: "Every conversation and outcome is captured and aggregated into aIQ Insights. Leadership gets a real-time view of team performance, authorization trends, and improvement opportunities.",
+    icon: <BarChart3 size={22} />,
+    desc: "aIQ Insights aggregates outcomes across all cases, providing leadership with real-time dashboards, trend analysis, and actionable metrics to continuously improve team performance and identify optimization opportunities.",
   },
   {
-    num: "05",
+    step: 5,
     title: "Continuous Learning",
-    desc: "The platform learns from every case — improving its predictive models and conversation guidance over time. Your OPO gets smarter every single day.",
+    icon: <Zap size={22} />,
+    desc: "The platform learns from every interaction, refining predictions and recommendations over time. The more your team uses authorizationIQ™, the smarter and more effective it becomes for your specific OPO context.",
   },
 ];
 
-const scenarios = [
+const useCaseTimeline = [
   {
     time: "7:15 AM",
-    icon: "📋",
-    title: "New Referral Received",
-    desc: "Sarah receives a new referral. aIQ Predict immediately analyzes 50+ variables and displays a 72% authorization likelihood score with a recommended approach strategy.",
+    emoji: "📋",
+    title: "Referral Received",
+    text: "Sarah, a donation coordinator, receives a referral notification. Before she even arrives at the hospital, aIQ Predict has already analyzed the case: family demographics, hospital context, and cultural considerations. Her phone shows an authorization likelihood score of 72% with a recommended approach strategy.",
   },
   {
     time: "8:30 AM",
-    icon: "🎯",
+    emoji: "🎯",
     title: "Approach Plan Review",
-    desc: "Sarah reviews her personalized approach plan, which includes cultural considerations for the family's background, optimal timing guidance, and key themes to emphasize.",
+    text: "At the hospital, Sarah reviews the detailed approach plan. aIQ Navigator has prepared culturally appropriate talking points and flagged that this family's background typically responds best to conversations led by a medical professional alongside the coordinator.",
   },
   {
     time: "10:00 AM",
-    icon: "💬",
+    emoji: "💬",
     title: "Family Conversation",
-    desc: "During the family meeting, aIQ Navigator provides real-time support — surfacing empathetic talking points, helping address hesitation, and coaching Sarah through emotional moments.",
+    text: "During the family conversation, aIQ Navigator provides real-time support. When the family expresses concerns about the donation process, the system surfaces specific, evidence-based responses that address their worries with empathy and clarity — in the moment, discreetly.",
   },
   {
     time: "11:45 AM",
-    icon: "✅",
+    emoji: "✅",
     title: "Authorization Received",
-    desc: "The family authorizes. aIQ Insights immediately updates the dashboard, capturing the outcome and adding the case to the performance trend data visible to OPO leadership.",
+    text: "The family provides authorization. Sarah logs the outcome, and aIQ Insights immediately updates the team dashboard. Her OPO director can see the approach strategy that worked, contributing to a broader pattern of improved outcomes visible to leadership in real time.",
   },
   {
     time: "End of Day",
-    icon: "📊",
-    title: "Post-Conversation Analysis",
-    desc: "Sarah reviews her post-conversation debrief from aIQ Navigator. She gets feedback on her approach, highlights what worked well, and areas to strengthen for future cases.",
+    emoji: "📊",
+    title: "Post-Conversation Learning",
+    text: "Sarah reviews her post-conversation debrief from aIQ Navigator, identifying what worked well and areas to strengthen. She feels more confident, better prepared for tomorrow's cases, and supported in her role in a way she hasn't experienced before.",
   },
 ];
 
 const securityCards = [
   {
-    icon: <Shield size={24} className="text-primary" />,
+    icon: <Shield size={22} className="text-primary" />,
     title: "HIPAA Compliant",
-    desc: "Full HIPAA compliance with BAA available for all OPO partners.",
+    desc: "Full HIPAA compliance with a Business Associate Agreement (BAA) available for all OPO partners. Built to meet the strictest healthcare data standards.",
   },
   {
-    icon: <Lock size={24} className="text-primary" />,
+    icon: <Lock size={22} className="text-primary" />,
     title: "End-to-End Encryption",
-    desc: "All data is encrypted in transit and at rest using AES-256 standards.",
+    desc: "All data is encrypted in transit and at rest using AES-256 standards. Your data is protected at every point in the workflow.",
   },
   {
-    icon: <UserCheck size={24} className="text-primary" />,
+    icon: <UserCheck size={22} className="text-primary" />,
     title: "Role-Based Access",
-    desc: "Granular permissions ensure each team member only sees what they need.",
+    desc: "Granular, configurable permissions ensure each team member — coordinator, director, partner — only sees what they're authorized to access.",
   },
 ];
 
@@ -91,22 +96,25 @@ export default function HowItWorksPage() {
         className="relative min-h-[55vh] flex items-center pt-20 overflow-hidden"
         style={{ background: "linear-gradient(135deg, #0F3048 0%, #1B4D6E 40%, #2A6F97 100%)" }}
       >
+        <div className="absolute bottom-0 right-0 w-96 h-96 opacity-8 pointer-events-none"
+          style={{ background: "radial-gradient(circle, #2A9FD6, transparent 70%)" }} />
         <div className="container-site py-20 relative z-10 text-center">
           <FadeIn>
-            <SectionTag variant="primary">
-              <span className="text-white/80">Process</span>
-            </SectionTag>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mt-5 mb-6 text-balance">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-medium mb-7">
+              <span className="w-2 h-2 rounded-full bg-primary-light animate-pulse" />
+              Platform Process
+            </span>
+            <h1 className="text-4xl md:text-[3.25rem] font-bold text-white mb-6 text-balance leading-tight">
               How authorizationIQ™ Works
             </h1>
             <p className="text-white/70 text-xl max-w-2xl mx-auto leading-relaxed">
-              From the first referral to continuous improvement — see how the platform supports your team at every step.
+              A clear, step-by-step look at how data flows through the platform and supports coordinators in their daily work.
             </p>
           </FadeIn>
         </div>
-        <div className="absolute bottom-0 left-0 right-0">
-          <svg viewBox="0 0 1440 60" fill="none">
-            <path d="M0 60H1440V20C1200 50 720 0 0 40V60Z" fill="white" />
+        <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
+          <svg viewBox="0 0 1440 70" fill="none" preserveAspectRatio="none" className="w-full">
+            <path d="M0 70H1440V25C1200 60 720 0 0 50V70Z" fill="white" />
           </svg>
         </div>
       </section>
@@ -117,25 +125,41 @@ export default function HowItWorksPage() {
           <FadeIn className="text-center mb-14">
             <SectionTag>The Process</SectionTag>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-4 text-balance">
-              Five Steps to Better Outcomes
+              The authorizationIQ™ Process
             </h2>
+            <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
+              Five integrated steps that work together — from data integration to continuous learning.
+            </p>
           </FadeIn>
 
           <div className="relative max-w-3xl mx-auto">
-            {/* Vertical line */}
-            <div className="absolute left-8 md:left-12 top-0 bottom-0 w-0.5 bg-border" />
+            {/* Vertical connector */}
+            <div className="absolute left-[27px] top-8 bottom-8 w-0.5 bg-gradient-to-b from-primary/40 via-primary/20 to-transparent pointer-events-none" />
 
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col gap-8">
               {steps.map((step, i) => (
                 <FadeIn key={i} delay={i * 0.1}>
-                  <div className="relative flex gap-8 md:gap-12 pl-20 md:pl-28">
-                    {/* Number circle */}
-                    <div className="absolute left-0 w-16 h-16 md:w-24 md:h-24 flex-shrink-0 flex items-center justify-center">
-                      <div className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold text-sm shadow-card z-10 relative">
-                        {step.num}
-                      </div>
+                  <div className="flex gap-6 items-start">
+                    {/* Step circle */}
+                    <div className="relative flex-shrink-0">
+                      <motion.div
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        whileInView={{ scale: 1, opacity: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: i * 0.1 + 0.2, duration: 0.4 }}
+                        className="w-14 h-14 rounded-full bg-primary text-white flex items-center justify-center shadow-card z-10 relative"
+                      >
+                        {step.icon}
+                      </motion.div>
                     </div>
-                    <div className="bg-white rounded-2xl p-6 shadow-card border border-border flex-1 hover:shadow-card-hover hover:-translate-y-0.5 transition-all">
+
+                    {/* Content card */}
+                    <div className="flex-1 bg-white rounded-2xl p-6 shadow-card border border-border hover:shadow-card-hover hover:-translate-y-0.5 transition-all duration-300">
+                      <div className="flex items-center gap-3 mb-2">
+                        <span className="text-xs font-bold text-primary/40 uppercase tracking-widest">
+                          Step {step.step}
+                        </span>
+                      </div>
                       <h3 className="text-lg font-bold text-foreground mb-2">{step.title}</h3>
                       <p className="text-muted-foreground text-sm leading-relaxed">{step.desc}</p>
                     </div>
@@ -147,7 +171,7 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      {/* Use Case Scenario */}
+      {/* Use Case Timeline */}
       <section className="section-padding bg-warm-bg">
         <div className="container-site">
           <FadeIn className="text-center mb-12">
@@ -155,25 +179,27 @@ export default function HowItWorksPage() {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-4 text-balance">
               A Day in the Life with authorizationIQ™
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Follow Sarah, a donation coordinator, through a full day supported by authorizationIQ™.
+            <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
+              Follow Sarah, a donation coordinator, through one case — from referral notification to post-conversation learning.
             </p>
           </FadeIn>
 
           <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-card border border-border overflow-hidden">
-            {scenarios.map((s, i) => (
+            {useCaseTimeline.map((entry, i) => (
               <FadeIn key={i} delay={i * 0.08}>
-                <div className={`p-6 md:p-8 ${i < scenarios.length - 1 ? "border-b border-border" : ""}`}>
+                <div className={`p-6 md:p-8 ${i < useCaseTimeline.length - 1 ? "border-b border-border" : ""}`}>
                   <div className="flex items-start gap-5">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 bg-warm-bg rounded-xl flex items-center justify-center text-xl">{s.icon}</div>
+                    <div className="flex-shrink-0 w-12 h-12 bg-warm-bg rounded-xl flex items-center justify-center text-xl">
+                      {entry.emoji}
                     </div>
                     <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">{s.time}</span>
-                        <h4 className="font-semibold text-foreground text-sm">{s.title}</h4>
+                      <div className="flex flex-wrap items-center gap-2 mb-2">
+                        <span className="text-xs font-bold text-primary bg-primary/10 px-2.5 py-1 rounded-full">
+                          {entry.time}
+                        </span>
+                        <span className="font-semibold text-foreground text-sm">{entry.title}</span>
                       </div>
-                      <p className="text-muted-foreground text-sm leading-relaxed">{s.desc}</p>
+                      <p className="text-muted-foreground text-sm leading-relaxed">{entry.text}</p>
                     </div>
                   </div>
                 </div>
@@ -190,20 +216,23 @@ export default function HowItWorksPage() {
             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-5">
               <Lock size={28} className="text-primary" />
             </div>
-            <SectionTag>Security & Privacy</SectionTag>
+            <SectionTag>Security &amp; Privacy</SectionTag>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-4 mb-4 text-balance">
-              Enterprise-Grade Data Security
+              Data Security &amp; Privacy
             </h2>
             <p className="text-muted-foreground max-w-xl mx-auto leading-relaxed">
-              We take data security seriously — because your families, your donors, and your coordinators deserve nothing less. authorizationIQ™ is built to meet the highest standards in healthcare data privacy.
+              We understand that patient data is sacred. authorizationIQ™ is built from the ground up with healthcare-grade security, HIPAA compliance, and privacy-first architecture. Your data never leaves your control.
             </p>
           </FadeIn>
+
           <div className="grid md:grid-cols-3 gap-6">
             {securityCards.map((c, i) => (
               <FadeIn key={i} delay={i * 0.1}>
-                <div className="bg-white rounded-2xl p-6 shadow-card border border-border text-center hover:shadow-card-hover hover:-translate-y-1 transition-all">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">{c.icon}</div>
-                  <h3 className="font-bold text-foreground mb-2 text-sm">{c.title}</h3>
+                <div className="bg-white rounded-2xl p-7 shadow-card border border-border text-center hover:shadow-card-hover hover:-translate-y-1 transition-all">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    {c.icon}
+                  </div>
+                  <h3 className="font-bold text-foreground mb-2">{c.title}</h3>
                   <p className="text-muted-foreground text-xs leading-relaxed">{c.desc}</p>
                 </div>
               </FadeIn>
@@ -212,7 +241,13 @@ export default function HowItWorksPage() {
         </div>
       </section>
 
-      <CTABanner />
+      <CTABanner
+        headline="Ready to See It in Action?"
+        subtext="Schedule a demo to see how authorizationIQ™ can work for your organization."
+        primaryLabel="Request Demo"
+        secondaryLabel="Contact Us"
+        secondaryHref="/contact"
+      />
     </div>
   );
 }
