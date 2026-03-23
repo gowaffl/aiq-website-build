@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  ShieldCheck,
   CheckCircle2,
   ArrowRight,
   TrendingUp,
@@ -132,35 +131,31 @@ export default function HomePage() {
               </motion.div>
             </div>
 
-            {/* Right: hero stat card */}
+            {/* Right: Suite video */}
             <motion.div
               initial={{ opacity: 0, x: 40, scale: 0.97 }}
               animate={{ opacity: 1, x: 0, scale: 1 }}
               transition={{ duration: 0.75, delay: 0.25 }}
+              className="relative"
             >
-              <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-2xl p-8">
-                <div className="grid grid-cols-2 gap-5">
-                  {[
-                    { icon: <TrendingUp size={16} className="text-emerald-400" />, label: "Authorization Rate", value: "+12%", note: "avg. improvement" },
-                    { icon: <MessageCircle size={16} style={{ color: "#F09A68" }} />, label: "Coordinator Support", value: "24/7", note: "AI-powered" },
-                    { icon: <Database size={16} style={{ color: "#8B9CF7" }} />, label: "Data Points", value: "50K+", note: "analyzed per case" },
-                    { icon: <ShieldCheck size={16} style={{ color: "#F7C948" }} />, label: "HIPAA Compliant", value: "100%", note: "enterprise-ready" },
-                  ].map((stat, i) => (
-                    <div key={i} className="p-4 bg-white/8 rounded-xl border border-white/10">
-                      <div className="flex items-center gap-1.5 mb-2">
-                        {stat.icon}
-                        <span className="text-[11px] text-white/50 uppercase tracking-wider font-medium">{stat.label}</span>
-                      </div>
-                      <div className="text-2xl font-bold text-white mb-0.5">{stat.value}</div>
-                      <div className="text-[11px] text-white/40">{stat.note}</div>
-                    </div>
-                  ))}
-                </div>
-                <div className="mt-5 pt-5 border-t border-white/10 flex items-center gap-2 text-sm text-white/50">
-                  <ShieldCheck size={13} className="text-emerald-400 flex-shrink-0" />
-                  <span>Built for healthcare — HIPAA compliant &amp; enterprise-ready</span>
+              <div className="rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.45)] border border-white/20 relative">
+                <video
+                  src="/videos/authorizationIQ_Suite.mp4"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-auto block"
+                />
+                {/* Subtle pill overlay */}
+                <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-white text-xs font-medium">authorizationIQ™ Platform</span>
                 </div>
               </div>
+              {/* Glow behind the video */}
+              <div className="absolute -inset-4 rounded-3xl opacity-20 blur-3xl pointer-events-none"
+                style={{ background: "radial-gradient(circle, #2A9FD6, transparent 70%)" }} />
             </motion.div>
           </div>
         </div>

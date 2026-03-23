@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import logoWhite from "@/assets/logo-white.png";
+import logoDark from "@/assets/logo-dark.png";
+import iconDarkBg from "@/assets/icon-dark-bg.png";
+import iconLightBg from "@/assets/icon-light-bg.png";
 
 const links = [
   { label: "Home", href: "/" },
@@ -13,33 +17,19 @@ const links = [
 
 function LogoMark({ scrolled }: { scrolled: boolean }) {
   return (
-    <Link to="/" className="flex items-center gap-3 group" aria-label="authorizationIQ home">
-      {/* aIQ monogram badge */}
-      <div
-        className="w-9 h-9 rounded-xl flex items-center justify-center font-bold text-sm tracking-tight transition-all duration-300"
-        style={{
-          background: scrolled
-            ? "linear-gradient(135deg, #1B4D6E, #2A6F97)"
-            : "rgba(255,255,255,0.15)",
-          backdropFilter: scrolled ? "none" : "blur(8px)",
-          border: scrolled ? "none" : "1px solid rgba(255,255,255,0.25)",
-          color: "#fff",
-        }}
-      >
-        <span>
-          a<span style={{ color: "#2A9FD6" }}>IQ</span>
-        </span>
-      </div>
-
-      {/* Wordmark */}
-      <span
-        className="text-[15px] font-semibold tracking-tight hidden sm:block transition-colors duration-300"
-        style={{ color: scrolled ? "#1A1A2E" : "#ffffff" }}
-      >
-        authorization
-        <span style={{ color: scrolled ? "#1B4D6E" : "#7EC8E3" }}>IQ</span>
-        <sup className="text-[9px] ml-0.5 opacity-70">™</sup>
-      </span>
+    <Link to="/" className="flex items-center gap-2 group" aria-label="authorizationIQ home">
+      {/* Square icon mark */}
+      <img
+        src={scrolled ? iconLightBg : iconDarkBg}
+        alt="aIQ icon"
+        className="h-9 w-9 rounded-xl transition-all duration-300"
+      />
+      {/* Full wordmark — hidden on mobile */}
+      <img
+        src={scrolled ? logoDark : logoWhite}
+        alt="authorizationIQ"
+        className="h-6 w-auto hidden sm:block transition-all duration-300"
+      />
     </Link>
   );
 }
