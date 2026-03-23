@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
-  ShieldCheck,
   CheckCircle2,
   ArrowRight,
   TrendingUp,
@@ -11,7 +10,6 @@ import {
   MessageCircle,
   BarChart3,
   Calendar,
-  Play,
 } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import SectionTag from "@/components/SectionTag";
