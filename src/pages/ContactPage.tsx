@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Mail, Phone, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import AppButton from "@/components/ui/AppButton";
-import { CONTACT_INFO, FORMSPREE_CONTACT } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
+import { supabase } from "@/integrations/supabase/client";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", org: "", message: "" });
