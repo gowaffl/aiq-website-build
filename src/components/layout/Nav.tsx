@@ -18,17 +18,10 @@ const links = [
 function LogoMark({ scrolled }: { scrolled: boolean }) {
   return (
     <Link to="/" className="flex items-center gap-2 group" aria-label="authorizationIQ home">
-      {/* Square icon mark */}
-      <img
-        src={scrolled ? iconLightBg : iconDarkBg}
-        alt="aIQ icon"
-        className="h-9 w-9 rounded-xl transition-all duration-300"
-      />
-      {/* Full wordmark — hidden on mobile */}
       <img
         src={scrolled ? logoDark : logoWhite}
         alt="authorizationIQ"
-        className="h-6 w-auto hidden sm:block transition-all duration-300"
+        className="h-8 w-auto transition-all duration-300"
       />
     </Link>
   );
