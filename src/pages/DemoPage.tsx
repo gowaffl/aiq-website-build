@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, Clock, Shield } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import AppButton from "@/components/ui/AppButton";
-import { FORMSPREE_DEMO } from "@/lib/constants";
+import { supabase } from "@/integrations/supabase/client";
 
 const interests = [
   "aIQ Predict — Predictive Analytics",
@@ -32,10 +32,8 @@ export default function DemoPage() {
     if (!form.name || !form.email || !form.org) return;
     setLoading(true);
     try {
-      await fetch(FORMSPREE_DEMO, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(form),
+      await supabase.functions.invoke("send-form-email", {
+        body: { formType: "demo", ...form },
       });
       setSent(true);
     } catch {

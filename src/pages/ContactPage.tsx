@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Mail, Phone, Clock, ArrowRight, CheckCircle2 } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 import AppButton from "@/components/ui/AppButton";
-import { CONTACT_INFO, FORMSPREE_CONTACT } from "@/lib/constants";
+import { CONTACT_INFO } from "@/lib/constants";
+import { supabase } from "@/integrations/supabase/client";
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: "", email: "", org: "", message: "" });
@@ -19,19 +20,16 @@ export default function ContactPage() {
     setLoading(true);
     setError(false);
     try {
-      const res = await fetch(FORMSPREE_CONTACT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(form),
+      const { error: fnError } = await supabase.functions.invoke("send-form-email", {
+        body: { formType: "contact", ...form },
       });
-      if (res.ok) {
-        setSent(true);
-      } else {
+      if (fnError) {
         setError(true);
+      } else {
+        setSent(true);
       }
     } catch {
-      // Still show success for demo purposes when endpoint is a placeholder
-      setSent(true);
+      setError(true);
     }
     setLoading(false);
   };
