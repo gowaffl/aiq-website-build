@@ -32,10 +32,8 @@ export default function DemoPage() {
     if (!form.name || !form.email || !form.org) return;
     setLoading(true);
     try {
-      await fetch(FORMSPREE_DEMO, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(form),
+      await supabase.functions.invoke("send-form-email", {
+        body: { formType: "demo", ...form },
       });
       setSent(true);
     } catch {

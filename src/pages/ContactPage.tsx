@@ -20,19 +20,16 @@ export default function ContactPage() {
     setLoading(true);
     setError(false);
     try {
-      const res = await fetch(FORMSPREE_CONTACT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Accept: "application/json" },
-        body: JSON.stringify(form),
+      const { error: fnError } = await supabase.functions.invoke("send-form-email", {
+        body: { formType: "contact", ...form },
       });
-      if (res.ok) {
-        setSent(true);
-      } else {
+      if (fnError) {
         setError(true);
+      } else {
+        setSent(true);
       }
     } catch {
-      // Still show success for demo purposes when endpoint is a placeholder
-      setSent(true);
+      setError(true);
     }
     setLoading(false);
   };
