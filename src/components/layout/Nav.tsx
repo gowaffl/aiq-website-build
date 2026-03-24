@@ -21,7 +21,7 @@ function LogoMark({ scrolled }: { scrolled: boolean }) {
       <img
         src={scrolled ? iconLightBg : iconDarkBg}
         alt="authorizationIQ"
-        className="h-10 w-10 transition-all duration-300"
+        className="h-10 w-10 rounded-full transition-all duration-300"
       />
     </Link>
   );
