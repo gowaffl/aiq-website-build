@@ -95,16 +95,25 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.65, delay: 0.1 }}
-                className="text-4xl md:text-5xl xl:text-[3.5rem] font-bold text-white leading-[1.12] mb-7 text-balance"
+                className="text-4xl md:text-5xl xl:text-[3.5rem] font-bold text-white leading-[1.12] mb-4 text-balance"
               >
-                Transform Organ Donation Outcomes with{" "}
-                <span style={{ color: "#7EC8E3" }}>AI-Powered Intelligence</span>
+                Introducing{" "}
+                <span style={{ color: "#7EC8E3" }}>authorizationIQ™</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.65, delay: 0.2 }}
+                transition={{ duration: 0.65, delay: 0.18 }}
+                className="text-white/90 text-xl font-semibold mb-4 max-w-xl"
+              >
+                Transform Organ Donation Outcomes with AI-Powered Intelligence
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.65, delay: 0.26 }}
                 className="text-white/70 text-lg leading-relaxed mb-10 max-w-xl"
               >
                 authorizationIQ™ equips OPOs with predictive analytics, real-time conversation support, and performance dashboards to improve authorization rates and support coordinators in their most critical moments.
