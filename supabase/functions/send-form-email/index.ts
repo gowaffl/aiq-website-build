@@ -5,8 +5,8 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const RECIPIENT = "brent@donationadvocates.com";
-const FROM_ADDRESS = "authorizationIQ <notifications@donationadvocates.com>";
+const RECIPIENT = "brent@authorizationiq.ai";
+const FROM_ADDRESS = "authorizationIQ <notifications@authorizationiq.ai>";
 
 serve(async (req) => {
   if (req.method === "OPTIONS") {

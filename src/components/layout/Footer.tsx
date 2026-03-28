@@ -15,11 +15,11 @@ export default function Footer() {
             </p>
             <div className="flex flex-col gap-2">
               <a
-                href="mailto:brent@donationadvocates.com"
+                href="mailto:brent@authorizationiq.ai"
                 className="flex items-center gap-2 text-sm text-white/65 hover:text-white transition-colors"
               >
                 <Mail size={14} className="flex-shrink-0" />
-                brent@donationadvocates.com
+                brent@authorizationiq.ai
               </a>
               <a
                 href="tel:+13308837131"

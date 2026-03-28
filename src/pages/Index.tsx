@@ -17,6 +17,7 @@ import StatCounter from "@/components/StatCounter";
 import CTABanner from "@/components/CTABanner";
 import ROICalculator from "@/components/ROICalculator";
 import ProductCard from "@/components/ui/ProductCard";
+import VideoPlayer from "@/components/ui/VideoPlayer";
 import { PRODUCTS, PROCESS_STEPS } from "@/lib/constants";
 
 const problemCards = [
@@ -85,9 +86,12 @@ export default function HomePage() {
                 transition={{ duration: 0.5 }}
                 className="mb-7"
               >
-                <span className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 border border-white/20 text-white text-sm font-medium">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse flex-shrink-0" />
-                  Now accepting early access partners
+                <span className="inline-flex items-center gap-3">
+                  <span className="block h-[1.5px] w-6 rounded-full flex-shrink-0 bg-accent" />
+                  <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/80 leading-none whitespace-nowrap">
+                    Now accepting early access partners
+                  </span>
+                  <span className="block h-[1.5px] w-3 rounded-full flex-shrink-0 bg-white/20" />
                 </span>
               </motion.div>
 
@@ -147,20 +151,12 @@ export default function HomePage() {
               transition={{ duration: 0.75, delay: 0.25 }}
               className="relative"
             >
-              <div className="rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.45)] border border-white/20 relative">
-                <video
+              <div className="rounded-2xl overflow-hidden shadow-[0_30px_80px_rgba(0,0,0,0.45)] border border-white/20">
+                <VideoPlayer
                   src="/videos/authorizationIQ_Suite.mp4"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  className="w-full h-auto block"
+                  label="authorizationIQ™ Platform"
+                  accentColor="#2A9FD6"
                 />
-                {/* Subtle pill overlay */}
-                <div className="absolute bottom-4 left-4 flex items-center gap-2 bg-black/50 backdrop-blur-sm border border-white/20 rounded-full px-3 py-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-white text-xs font-medium">authorizationIQ™ Platform</span>
-                </div>
               </div>
               {/* Glow behind the video */}
               <div className="absolute -inset-4 rounded-3xl opacity-20 blur-3xl pointer-events-none"

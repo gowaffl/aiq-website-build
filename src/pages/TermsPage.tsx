@@ -103,7 +103,7 @@ export default function TermsPage() {
                 <h2 className="text-xl font-bold text-foreground mb-3">10. Contact</h2>
                 <div className="bg-warm-bg rounded-xl p-5 border border-border">
                   <p className="font-semibold text-foreground text-sm">authorizationIQ™ / Donation Advocates</p>
-                  <p className="text-sm">Email: <a href="mailto:brent@donationadvocates.com" className="text-primary hover:underline">brent@donationadvocates.com</a></p>
+                  <p className="text-sm">Email: <a href="mailto:brent@authorizationiq.ai" className="text-primary hover:underline">brent@authorizationiq.ai</a></p>
                   <p className="text-sm">Phone: <a href="tel:+13308837131" className="text-primary hover:underline">(330) 883-7131</a></p>
                 </div>
               </div>

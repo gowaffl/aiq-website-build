@@ -3,6 +3,7 @@ import { ArrowRight, CheckCircle2, Target, MessageCircle, BarChart3, Users } fro
 import FadeIn from "@/components/FadeIn";
 import SectionTag from "@/components/SectionTag";
 import AppButton from "@/components/ui/AppButton";
+import VideoPlayer from "@/components/ui/VideoPlayer";
 import { PRODUCTS } from "@/lib/constants";
 
 const iconMap: Record<string, JSX.Element> = {
@@ -120,24 +121,15 @@ export default function ProductPage() {
                   className={isReversed ? "lg:order-1" : ""}
                 >
                   <div
-                    className="rounded-2xl overflow-hidden shadow-card-hover border-2 relative"
+                    className="rounded-2xl overflow-hidden shadow-card-hover border-2"
                     style={{ borderColor: `${product.color}30` }}
                   >
-                    <video
+                    <VideoPlayer
                       src={product.video}
-                      autoPlay
-                      muted
-                      loop
-                      playsInline
-                      className="w-full h-auto block"
+                      label={product.name}
+                      labelColor={product.color}
+                      accentColor={product.color}
                     />
-                    {/* Subtle product label overlay */}
-                    <div
-                      className="absolute bottom-4 left-4 px-3 py-1.5 rounded-full text-xs font-semibold text-white"
-                      style={{ backgroundColor: `${product.color}CC` }}
-                    >
-                      {product.name}
-                    </div>
                   </div>
                 </FadeIn>
               </div>
@@ -160,13 +152,10 @@ export default function ProductPage() {
           </FadeIn>
           <FadeIn delay={0.1}>
             <div className="rounded-2xl overflow-hidden shadow-card-hover border border-border max-w-4xl mx-auto">
-              <video
+              <VideoPlayer
                 src="/videos/authorizationIQ_Suite.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-auto block"
+                label="authorizationIQ™ Platform"
+                accentColor="#2A9FD6"
               />
             </div>
           </FadeIn>

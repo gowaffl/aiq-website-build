@@ -23,11 +23,11 @@ const sections = [
   },
   {
     title: "Your Rights",
-    body: "You have the right to request access to, correction of, or deletion of your personal information. To exercise these rights, please contact us at brent@donationadvocates.com.",
+    body: "You have the right to request access to, correction of, or deletion of your personal information. To exercise these rights, please contact us at brent@authorizationiq.ai.",
   },
   {
     title: "Contact Us",
-    body: "If you have questions about this privacy policy, please contact us at brent@donationadvocates.com or (330) 883-7131.",
+    body: "If you have questions about this privacy policy, please contact us at brent@authorizationiq.ai or (330) 883-7131.",
   },
 ];
 

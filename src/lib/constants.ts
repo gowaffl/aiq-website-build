@@ -19,7 +19,7 @@ export const CALENDLY_URL = "https://calendly.com/YOUR_CALENDLY_LINK";
 export const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
 
 export const CONTACT_INFO = {
-  email: "brent@donationadvocates.com",
+  email: "brent@authorizationiq.ai",
   phone: "(330) 883-7131",
   name: "Brent Whetstone",
   title: "Founder, Donation Advocates",

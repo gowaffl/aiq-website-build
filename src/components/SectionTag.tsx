@@ -5,18 +5,36 @@ interface SectionTagProps {
   variant?: "primary" | "accent" | "success";
 }
 
+const variantStyles = {
+  primary: {
+    text: "text-primary",
+    strongLine: "bg-accent",
+    mutedLine: "bg-primary/20",
+  },
+  accent: {
+    text: "text-accent",
+    strongLine: "bg-primary",
+    mutedLine: "bg-accent/20",
+  },
+  success: {
+    text: "text-success",
+    strongLine: "bg-success",
+    mutedLine: "bg-success/20",
+  },
+};
+
 export default function SectionTag({ children, variant = "primary" }: SectionTagProps) {
-  const colors = {
-    primary: "bg-primary/10 text-primary border-primary/20",
-    accent: "bg-accent/10 text-accent border-accent/20",
-    success: "bg-success/10 text-success border-success/20",
-  };
+  const cv = variantStyles[variant];
 
   return (
-    <span
-      className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold uppercase tracking-widest rounded-full border ${colors[variant]}`}
-    >
-      {children}
+    <span className="inline-flex items-center gap-3">
+      <span className={`block h-[1.5px] w-6 rounded-full flex-shrink-0 ${cv.strongLine}`} />
+      <span
+        className={`text-[10px] font-bold uppercase tracking-[0.22em] leading-none whitespace-nowrap ${cv.text}`}
+      >
+        {children}
+      </span>
+      <span className={`block h-[1.5px] w-3 rounded-full flex-shrink-0 ${cv.mutedLine}`} />
     </span>
   );
 }
